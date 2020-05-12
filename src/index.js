@@ -3,10 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'mobx-react';
+import HomeStore from './stores/home'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <Provider HomeStore={HomeStore}>
+          <Router>
+              <App />
+          </Router>
+      </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
