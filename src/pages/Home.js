@@ -1,15 +1,12 @@
-import React,{Component} from "react";
-import {Link} from "react-router-dom";
+import React from "react";
 
 
-export default class Home extends Component{
-    render(){
-        return (
-            <div>
-                <h1>Home</h1>
-                <Link to={'/about'}>关于</Link>
-            </div>
-        )
-    }
-
+function Home() {
+    return (
+        <>
+            <h1>Home</h1>
+        </>
+    )
 }
+
+export default Home

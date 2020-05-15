@@ -1,12 +1,12 @@
 import React from "react";
 
 
-function About() {
+function History() {
     return (
         <>
-            <h1>About</h1>
+            <h1>History</h1>
         </>
     )
 }
 
-export default About
+export default History
