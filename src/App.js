@@ -2,6 +2,8 @@ import React, {Suspense} from 'react';
 import './App.css';
 import Loading from "./components/Loading";
 
+import 'antd/dist/antd.css'
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import {

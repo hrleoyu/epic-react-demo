@@ -1,7 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import Logo from './logo.svg';
-import {NavLink} from "react-router-dom";
-import styled from 'styled-components'
+import {NavLink,useHistory} from "react-router-dom";
+import styled from 'styled-components';
+import {Button} from 'antd';
+import {useStores} from '../stores';
+import {observer} from "mobx-react";
+
 
 
 const StyledHeader = styled.header`
@@ -9,7 +13,8 @@ const StyledHeader = styled.header`
     display:flex;
     align-items:center;
     padding:10px 100px;
-    height:50px
+    height:50px;
+    color:#fff;
 `;
 const StyledLogo = styled.img`
     height:30px;
@@ -27,11 +32,31 @@ const StyleLogin = styled.div`
     margin-left: auto;
 `;
 
-const StyleButton = styled.button`
+const StyleButton = styled(Button)`
     margin-left: 10px;
-`
+    
+`;
 
-function Header() {
+const Header = observer ( () => {
+    const {UserStores, AuthStores} = useStores();
+
+    const history = useHistory();
+
+    const handleLogout = () =>{
+        AuthStores.logout()
+    };
+
+    const handleLogin = () => {
+        console.log('跳转到登陆页面');
+        history.push('/login');
+    };
+
+    const handleRegister = () => {
+        console.log('跳转到注册页面');
+        history.push('/reg');
+    }
+
+
     return (
         <StyledHeader>
             <StyledLogo src={Logo} alt={'图标'}/>
@@ -41,15 +66,19 @@ function Header() {
                 <StyledLink to={'/about'}>关于我</StyledLink>
             </nav>
             <StyleLogin>
-                <StyleButton>
-                    <StyledLink to={'/login'}>登陆</StyledLink>
-                </StyleButton>
-                <StyleButton>
-                    <StyledLink to={'/reg'}>注册</StyledLink>
-                </StyleButton>
+                {
+                    UserStores.currentUser ? <>
+                        {UserStores.currentUser.attributes.username} 用户名 <StyleButton type="primary" onClick={() =>handleLogout()}>注销</StyleButton>
+                    </> : <>
+                        <StyleButton type="primary" onClick={()=>handleLogin()}>登陆</StyleButton>
+                        <StyleButton type="primary" onClick={handleRegister}>注册</StyleButton>
+                    </>
+
+                }
+
             </StyleLogin>
         </StyledHeader>
-    )
-}
+    );
+})
 
 export default Header

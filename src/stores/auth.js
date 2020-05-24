@@ -1,20 +1,15 @@
-import {observable, action} from 'mobx'
+import {observable, action} from 'mobx';
+import { Auth } from '../mod/index';
+import UserStores from '../stores/user'
 
 
 class AuthStores {
-    @observable isLogin = false
-    @observable isLoading = false
     @observable value = {
-        usename : '',
-        password : ''
+        username : '',
+        password : '',
     }
-
-    @action setIsLogin(isLogin){
-        this.isLogin = isLogin
-    }
-
-    @action setUseName(usename){
-        this.value.usename = usename
+    @action setUsername(username){
+        this.value.username = username
     }
 
     @action setPassword(password){
@@ -22,30 +17,44 @@ class AuthStores {
     }
 
     @action login (){
-        console.log('登陆中……')
-        this.isLoading = true
-        setTimeout(() => {
-            console.log('登陆成功')
-            this.isLogin = true
-            this.isLoading = false
-        },1000)
+        return new Promise((resolve, reject) => {
+            Auth.login(this.value.username,this.value.password)
+                .then(user => {
+                    console.log('登陆成功')
+                    UserStores.pullUser()
+                     resolve(user)
+                })
+                .catch(err =>{
+                    console.log('登陆失败2')
+                    UserStores.resetUser()
+                    console.log(err)
+                    reject(err)
+                })
+        })
     }
-
     @action reg () {
-        console.log('注册中……')
-        this.isLoading = true
-        setTimeout(() => {
-            console.log('注册成功')
-            this.isLogin = true
-            this.isLoading = false
-        },1000)
+        return new Promise((resolve, reject) => {
+            Auth.reg(this.value.username,this.value.password)
+                .then(user => {
+                    console.log('注册成功')
+                    UserStores.pullUser()
+                    resolve(user)
+                })
+                .catch(err =>{
+                    console.log('注册失败2')
+                    UserStores.resetUser()
+                    console.log(err)
+                    reject(err)
+                })
+        })
     }
 
     @action logout () {
-        console.log('已注销')
+        Auth.logout()
+        UserStores.resetUser()
     }
 }
 
 
 
-export default AuthStores
+export default new AuthStores()
