@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c19e3ff-1be8-4fa8-8fcc-3b52b460c744" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/src/mod/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stores/user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Uploader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stores/image.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mod/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mod/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Reg.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Reg.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/stores/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +81,7 @@
       <workItem from="1589298952023" duration="4634000" />
       <workItem from="1589450799224" duration="25626000" />
       <workItem from="1590045469493" duration="2167000" />
-      <workItem from="1590047705631" duration="17407000" />
+      <workItem from="1590047705631" duration="28910000" />
     </task>
     <servers />
   </component>
