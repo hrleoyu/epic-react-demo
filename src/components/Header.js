@@ -68,7 +68,7 @@ const Header = observer ( () => {
             <StyleLogin>
                 {
                     UserStores.currentUser ? <>
-                        {UserStores.currentUser.attributes.username} 用户名 <StyleButton type="primary" onClick={() =>handleLogout()}>注销</StyleButton>
+                        {UserStores.currentUser.attributes.username}  <StyleButton type="primary" onClick={() =>handleLogout()}>注销</StyleButton>
                     </> : <>
                         <StyleButton type="primary" onClick={()=>handleLogin()}>登陆</StyleButton>
                         <StyleButton type="primary" onClick={handleRegister}>注册</StyleButton>
