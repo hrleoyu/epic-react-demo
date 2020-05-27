@@ -59,7 +59,9 @@ const Header = observer ( () => {
 
     return (
         <StyledHeader>
-            <StyledLogo src={Logo} alt={'图标'}/>
+            <a href={'/'}>
+            <StyledLogo src={Logo} alt={'图标'} />
+            </a>
             <nav>
                 <StyledLink to={'/'} exact activeClassName={'active'}>首页</StyledLink>
                 <StyledLink to={'/history'}>上传历史</StyledLink>
