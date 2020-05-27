@@ -1,6 +1,6 @@
-import React from "react";
+import React ,{useRef} from "react";
 import {useStores} from "../stores";
-import {observer} from "mobx-react";
+import {observer,useLocalStore} from "mobx-react";
 import {message, Upload} from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import styled from "styled-components";
@@ -27,6 +27,36 @@ const Img = styled.img`
 
 const Uploader =observer (() => {
     const {ImageStores,UserStores} = useStores();
+    const ref1 = useRef();
+    const ref2 = useRef();
+
+    const store = useLocalStore(() => ({
+        width:null,
+        setWidth (width) {
+          store.width = width
+        },
+        get widthStr (){
+            return store.width ? `/w/${store.width}` : ``
+        },
+        height:null,
+        setHeight (height){
+          store.height = height
+        },
+        get heightStr () {
+            return  store.height?`/h/${store.height}` : ``
+        },
+        get fullStr () {
+            return ImageStores.serverFile.attributes.url.attributes.url + `?imageView2/0` + store.widthStr + store.heightStr
+        }
+    })
+    );
+
+    const bindWidth = () => {
+        store.width = ref1.current.value
+    };
+    const bindHeight = () => {
+        store.height = ref2.current.value
+    };
 
 
     const props = {
@@ -78,6 +108,13 @@ const Uploader =observer (() => {
                                     {ImageStores.filename}
                                 </dd>
                             <Dt>更多尺寸</Dt>
+                            <dd>
+                                <input ref={ref1} onChange={bindWidth} placeholder={'最大宽度'}/>
+                                <input ref={ref2} onChange={bindHeight} placeholder={'最大高度'}/>
+                                <br/>
+                                <a target={'_blank'} href={store.fullStr}>{store.fullStr}</a>
+                            </dd>
+
                         </dl>
                     </Result> : null
             }
