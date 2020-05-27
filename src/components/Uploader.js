@@ -3,8 +3,27 @@ import {useStores} from "../stores";
 import {observer} from "mobx-react";
 import {message, Upload} from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
+import styled from "styled-components";
 
 const { Dragger } = Upload;
+
+const Result = styled.div`
+    margin-top:30px;
+    border:1px dashed #ccc;
+    padding:20px;
+`;
+const H1 = styled.h1`
+text-align:center;
+margin:20px 0;
+`;
+const Dt = styled.dt`
+text-align:center
+`;
+
+const Img = styled.img`
+    max-width:300px;
+`;
+
 
 const Uploader =observer (() => {
     const {ImageStores,UserStores} = useStores();
@@ -46,6 +65,22 @@ const Uploader =observer (() => {
                     band files
                 </p>
             </Dragger>
+            {
+                ImageStores.serverFile ?
+                    <Result>
+                        <H1>上传结果</H1>
+                        <dl>
+                            <Dt>在线地址</Dt>
+                                <dd><a target={'_blank'}>{ImageStores.serverFile.attributes.url.attributes.url}</a></dd>
+                            <Dt>图片预览</Dt>
+                                <dd>
+                                    <Img src={ImageStores.serverFile.attributes.url.attributes.url}/> <br/>
+                                    {ImageStores.filename}
+                                </dd>
+                            <Dt>更多尺寸</Dt>
+                        </dl>
+                    </Result> : null
+            }
             </>
     )
 });
