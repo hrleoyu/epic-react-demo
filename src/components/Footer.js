@@ -12,7 +12,7 @@ color:#333;
 function Footer() {
     return (
         <StyledFooter>
-            <p>Footer</p>
+            <p>作者：🐟</p>
         </StyledFooter>
     )
 }

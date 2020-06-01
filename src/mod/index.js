@@ -52,6 +52,12 @@ AV.init({
          return new Promise((resolve, reject) => {
              item.save().then((serverFile) => resolve(serverFile),error => reject(error))
          })
+     },
+
+     find({page=0,limit=10}){
+        const query=new AV.Query('Image')
+         query.include('owner')
+         
      }
  }
 
