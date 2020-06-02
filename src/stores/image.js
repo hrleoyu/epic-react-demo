@@ -35,6 +35,11 @@ class ImageStore {
             })
         })
     }
+    @action again () {
+       this.isUploading = false;
+       this.serverFile = null
+    }
+
 }
 
 

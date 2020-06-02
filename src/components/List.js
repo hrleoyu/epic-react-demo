@@ -1,16 +1,30 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {observer} from "mobx-react";
 import {useStores} from "../stores";
 import InfiniteScroll from 'react-infinite-scroller'
 import {List,Spin} from "antd";
+import styled from "styled-components";
 
 
+const Img = styled.img`
+    height:120px;
+    width:100px;
+`;
 
 const Li = observer (() => {
     const { HistoryStores } = useStores();
     const loadMore = () => {
         HistoryStores.find()
-    }
+    };
+
+    useEffect(() =>{
+        console.log('进入组件')
+
+        return() => {
+            console.log('卸载')
+            HistoryStores.again()
+        }
+    },[])
 
     return(
      <>
@@ -26,10 +40,16 @@ const Li = observer (() => {
                  renderItem = {item => (
                      <List.Item key={item.id}>
                          <div>
-                             <img src={item.attributes.url.attributes.url} style={{heigth:'100px',width:'100px'}}/>
+                             <Img src={item.attributes.url.attributes.url} />
                          </div>
                          <div>
                              <h5>{item.attributes.filename}</h5>
+                         </div>
+                         <div>
+                             <a target={'_blank'} href={item.attributes.url.attributes.url} >在线预览</a>
+                         </div>
+                         <div>
+                             <h5>{item.attributes.createdAt}</h5>
                          </div>
                      </List.Item>
                  )}

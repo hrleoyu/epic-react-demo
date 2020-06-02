@@ -30,6 +30,12 @@ class HistoryStores {
                 this.isLoading = false
             })
     }
+    @action again(){
+    this.list = [];
+    this.isLoading = false;
+    this.hasMore = true;
+    this.page = 0;
+    }
 }
 
 
