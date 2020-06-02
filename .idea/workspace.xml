@@ -4,9 +4,6 @@
     <list default="true" id="2c19e3ff-1be8-4fa8-8fcc-3b52b460c744" name="默认更改列表" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/List.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/List.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/history.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/history.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/image.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/image.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +80,7 @@
       <workItem from="1590047705631" duration="33674000" />
       <workItem from="1590511119613" duration="7083000" />
       <workItem from="1590925299813" duration="1543000" />
-      <workItem from="1591012111464" duration="9068000" />
+      <workItem from="1591012111464" duration="9860000" />
     </task>
     <servers />
   </component>
