@@ -29,7 +29,6 @@ const Li = observer (() => {
 
 // bug
 // 刷新后页面历史记录还有
-// list正序排列，需要倒序
 
 
     return(
@@ -42,7 +41,7 @@ const Li = observer (() => {
             useWindow={true}
          >
              <List
-                 dataSource={HistoryStores.list}
+                 dataSource={HistoryStores.list.reverse()}
                  renderItem = {item => (
                      <List.Item key={item.id}>
                          <div>
