@@ -1,0 +1,48 @@
+import React from "react";
+import {observer} from "mobx-react";
+import {useStores} from "../stores";
+import InfiniteScroll from 'react-infinite-scroller'
+import {List,Spin} from "antd";
+
+
+
+const Li = observer (() => {
+    const { HistoryStores } = useStores();
+    const loadMore = () => {
+        HistoryStores.find()
+    }
+
+    return(
+     <>
+         <InfiniteScroll
+            initialLoad={true}
+            pageStart={0}
+            loadMore={loadMore}
+            hasMore={!HistoryStores.isLoading&&HistoryStores.hasMore}
+            useWindow={true}
+         >
+             <List
+                 dataSource={HistoryStores.list}
+                 renderItem = {item => (
+                     <List.Item key={item.id}>
+                         <div>
+                             <img src={item.attributes.url.attributes.url} style={{heigth:'100px',width:'100px'}}/>
+                         </div>
+                         <div>
+                             <h5>{item.attributes.filename}</h5>
+                         </div>
+                     </List.Item>
+                 )}
+             >
+                 {HistoryStores.isLoading && HistoryStores.hasMore && (
+                     <div>
+                         <Spin tip={'加载中'}/>
+                     </div>
+                 )}
+             </List>
+         </InfiniteScroll>
+     </>
+    )
+});
+
+export default Li
